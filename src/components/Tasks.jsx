@@ -19,11 +19,12 @@ function Tasks({ tasks, onTaskClick, deleteTask }) {
           <>
             <button
               onClick={() => onTaskClick(task.id)}
-              className={`bg-slate-400 w-full text-left text-white p-2 rounded-md ${
-                task.completed && "line-through"
-              }`}
+              className="bg-slate-400 text-left w-full flex items-center gap-2 text-white p-2 rounded-md"
             >
-              {task.titulo}
+              {task.completed && <span>✔️</span>}
+              <span className={task.completed ? "line-through" : ""}>
+                {task.titulo}
+              </span>
             </button>
             <Button onClick={() => verDetalhesTask(task)}>
               <ChevronRightIcon />
